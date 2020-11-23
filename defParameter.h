@@ -1,7 +1,7 @@
 // Parameters for KITTI dataset
 
 // The number of superpixel
-int superpixelTotal = 1000;
+int superpixelTotal = 2500;
 
 // The number of iterations
 int outerIterationTotal = 10;

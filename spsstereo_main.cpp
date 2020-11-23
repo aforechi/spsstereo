@@ -56,8 +56,8 @@ int main(int argc, char* argv[]) {
 	std::vector< std::vector<int> > boundaryLabels;
 	sps.compute(superpixelTotal, leftImage, rightImage, segmentImage, disparityImage, disparityPlaneParameters, boundaryLabels);
 
-	png::image<png::rgb_pixel> segmentBoundaryImage;
-	makeSegmentBoundaryImage(leftImage, segmentImage, boundaryLabels, segmentBoundaryImage);
+	//png::image<png::rgb_pixel> segmentBoundaryImage;
+	//makeSegmentBoundaryImage(leftImage, segmentImage, boundaryLabels, segmentBoundaryImage);
 	
 	std::string outputDisparityImageFilename = "disparity.png";
 	//std::string outputSegmentImageFilename = outputBaseFilename + "_segment.png";

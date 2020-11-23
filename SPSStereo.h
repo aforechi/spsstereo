@@ -122,8 +122,8 @@ private:
 	};
 	class Boundary {
 	public:
-		Boundary() { segmentIndices_[0] = -1; segmentIndices_[1] = -1; clearCoefficients(); }
-		Boundary(const int firstSegmentIndex, const int secondSegmentIndex) {
+		Boundary() : type_(0) { segmentIndices_[0] = -1; segmentIndices_[1] = -1; clearCoefficients(); }
+		Boundary(const int firstSegmentIndex, const int secondSegmentIndex) : type_(0) {
 			if (firstSegmentIndex < secondSegmentIndex) {
 				segmentIndices_[0] = firstSegmentIndex; segmentIndices_[1] = secondSegmentIndex;
 			} else {

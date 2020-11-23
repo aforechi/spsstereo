@@ -1,17 +1,16 @@
-#Project
-cmake_minimum_required(VERSION 2.4)
-project(spsstereo)
+cmake_minimum_required(VERSION 3.0.0)
 
-# Flags
-set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -msse4.2")
-set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -msse4.2")
-if (APPLE)
-    set(CMAKE_CXX_FLAGS_RELEASE "-Wall -O3 -msse4.2 -stdlib=libstdc++")
-    set(CMAKE_CXX_FLAGS_DEBUG "-Wall -g -msse4.2 -stdlib=libstdc++")
-endif (APPLE)
-set(CMAKE_BUILD_TYPE Release)
+project(spsstereo VERSION 1.0.0)
 
-# SPS-Stereo
-file(GLOB SPSSTEREO_SRC_FILES "*.cpp")
-add_executable(spsstereo ${SPSSTEREO_SRC_FILES})
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+add_executable(spsstereo spsstereo_main.cpp SPSStereo.cpp SGMStereo.cpp)
+
+target_compile_options(spsstereo PRIVATE "-msse4.2")
+
 target_link_libraries(spsstereo png)
